@@ -1,6 +1,7 @@
 import { PopupData } from "src/ui";
 import { openPopup } from "src/ui/PopupStore";
 import { Mode, ModeEnum, toggleMode } from "src/ui/ModeStore";
+import { liquidGlass, toggleLiquidGlass } from "src/ui/ThemeStore";
 import { desktopUpdater, Update, type UpdateState } from "src/ui/UpdateStore";
 import { Settings } from "lucide-preact";
 import useTooltip from "src/ui/scripts/useTooltip";
@@ -126,6 +127,26 @@ function SettingsMenu() {
             className="settings-switch"
             checked={isAdvanced}
             onChange={toggleMode}
+          />
+        </label>
+      </section>
+
+      <section className="settings-section">
+        <h2>Appearance</h2>
+
+        <label className="settings-row">
+          <div className="settings-row-text">
+            <span className="settings-row-title">Liquid glass</span>
+            <span className="settings-row-description">
+              Use translucent, macOS-inspired glass surfaces.
+            </span>
+          </div>
+          <input
+            type="checkbox"
+            role="switch"
+            className="settings-switch"
+            checked={liquidGlass.value}
+            onChange={toggleLiquidGlass}
           />
         </label>
       </section>
